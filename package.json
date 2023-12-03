@@ -1,0 +1,39 @@
+{
+  "name": "chatonline",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "cross-env NODE_ENV=prod node src/app",
+    "dev": "cross-env NODE_ENV=dev nodemon src/app",
+    "lint": "eslint ./**/*",
+    "lint:fix": "eslint ./**/* --fix"
+  },
+  "author": "Nasadmi",
+  "license": "MIT",
+  "dependencies": {
+    "@libsql/client": "0.4.0-pre.5",
+    "bcrypt": "5.1.1",
+    "cookie-parser": "1.4.6",
+    "cors": "2.8.5",
+    "dotenv": "16.3.1",
+    "ejs": "3.1.9",
+    "express": "4.18.2",
+    "express-fileupload": "1.4.3",
+    "express-session": "1.17.3",
+    "morgan": "1.10.0",
+    "mysql2": "3.6.5",
+    "passport": "0.7.0",
+    "passport-local": "1.0.0",
+    "socket.io": "4.7.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.55.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "nodemon": "^3.0.2"
+  }
+}
