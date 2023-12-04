@@ -18,7 +18,13 @@ import session from 'express-session'
 
 import fileUpload from 'express-fileupload'
 
+import { __dirname } from '../__dirname.js'
+
+import { join } from 'node:path'
+
 import { db } from '../lib/db.js'
+
+import { indexRoutes } from '../router/index.routes.js'
 
 if (process.env.NODE_ENV === 'prod') {
   config({
@@ -58,9 +64,11 @@ app.use(pass.session())
 
 app.set('view engine', 'ejs')
 
-app.set('views', process.cwd + '/views')
+app.set('views', join(__dirname, 'views'))
 
-app.use('/resources', express.static(process.cwd + '/public'))
+app.use('/resources', express.static(join(__dirname, 'public')))
+
+app.use(indexRoutes)
 
 server.listen(parseInt(process.env.PORT), () => {
   console.log('Server is listening on port', process.env.PORT)
