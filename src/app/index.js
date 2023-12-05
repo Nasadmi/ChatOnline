@@ -68,6 +68,17 @@ app.set('views', join(__dirname, 'views'))
 
 app.use('/resources', express.static(join(__dirname, 'public')))
 
+app.use((req, res, next) => {
+  if (req.cookies.theme === undefined || (req.cookies.theme !== 'light' && req.cookies.theme !== 'dark')) {
+    res.cookie('theme', 'light', {
+      sameSite: 'none',
+      secure: true
+    })
+  }
+
+  next()
+})
+
 app.use(indexRoutes)
 
 server.listen(parseInt(process.env.PORT), () => {
